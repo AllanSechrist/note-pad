@@ -1,14 +1,14 @@
 from tkinter import *
 from file_menu import FileMenu
+from text_window import TextArea
 
 root = Tk()
-root.title("Notepad")
+root.title("Note")
 root.geometry('800x800')
 
-my_text = Text(root)
-my_text.pack(expand=True, fill='both')
+text_area = TextArea(root)
 
-file = FileMenu(root)
+file = FileMenu(root, text_area)
 
 
 if __name__=="__main__":
