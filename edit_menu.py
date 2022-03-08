@@ -21,7 +21,9 @@ class EditMenu():
 
     
     def copy_text(self, e):
-        pass
+        global selected
+        if self.text_area.selection_get():
+            selected = self.text_area.selection_get()
 
 
     def paste_text(self, e):
