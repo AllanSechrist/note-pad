@@ -12,7 +12,7 @@ menu_bar = Menu(root)
 root.config(menu=menu_bar)
 
 file = FileMenu(root, text_area, menu_bar)
-edit = EditMenu(menu_bar, text_area)
+edit = EditMenu(menu_bar, text_area, root)
 
 
 if __name__=="__main__":
