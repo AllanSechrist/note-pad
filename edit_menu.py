@@ -5,11 +5,12 @@ class EditMenu():
     def __init__(self, menu_bar, text_area, root):
         self.text_area = text_area
         self.edit_menu = Menu(menu_bar, tearoff=False)
-        self.edit_menu.add_command(label='Cut          Ctrl+x', command=lambda: self.cut_text(False))
-        self.edit_menu.add_command(label='Copy       Ctrl+c', command=lambda: self.copy_text(False))
-        self.edit_menu.add_command(label='Paste       Ctrl+p', command=lambda: self.paste_text(False))
-        self.edit_menu.add_command(label='Undo', command=lambda: self.undo_text(False))
-        self.edit_menu.add_command(label='Redo', command=lambda: self.redo_text(False))
+        self.edit_menu.add_command(label='Cut', command=lambda: self.cut_text(False), accelerator="Ctrl+x")
+        self.edit_menu.add_command(label='Copy', command=lambda: self.copy_text(False), accelerator="Ctrl+c")
+        self.edit_menu.add_command(label='Paste', command=lambda: self.paste_text(False), accelerator="Ctrl+p")
+        self.edit_menu.add_separator()
+        self.edit_menu.add_command(label='Undo', command=text_area.edit_undo, accelerator='Ctrl+z')
+        self.edit_menu.add_command(label='Redo', command=text_area.edit_redo, accelerator='Ctrl+y')
         menu_bar.add_cascade(label="Edit", menu=self.edit_menu)
 
         # Edit Key Binds

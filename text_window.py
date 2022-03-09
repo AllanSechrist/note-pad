@@ -5,7 +5,7 @@ from tkinter import Text
 
 class TextArea(Text):
     def __init__(self, root):
-        super().__init__(root)
+        super().__init__(root, undo=True)
         self.pack(expand=True, fill='both')
 
 
