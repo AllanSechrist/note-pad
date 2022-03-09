@@ -1,17 +1,18 @@
 from tkinter import INSERT, Menu
 
 
-class EditMenu():
+
+class EditMenu(Menu):
     def __init__(self, menu_bar, text_area, root):
+        super().__init__(menu_bar, tearoff=False)
         self.text_area = text_area
-        self.edit_menu = Menu(menu_bar, tearoff=False)
-        self.edit_menu.add_command(label='Cut', command=lambda: self.cut_text(False), accelerator="Ctrl+x")
-        self.edit_menu.add_command(label='Copy', command=lambda: self.copy_text(False), accelerator="Ctrl+c")
-        self.edit_menu.add_command(label='Paste', command=lambda: self.paste_text(False), accelerator="Ctrl+p")
-        self.edit_menu.add_separator()
-        self.edit_menu.add_command(label='Undo', command=text_area.edit_undo, accelerator='Ctrl+z')
-        self.edit_menu.add_command(label='Redo', command=text_area.edit_redo, accelerator='Ctrl+y')
-        menu_bar.add_cascade(label="Edit", menu=self.edit_menu)
+        self.add_command(label='Cut', command=lambda: self.cut_text(False), accelerator="Ctrl+x")
+        self.add_command(label='Copy', command=lambda: self.copy_text(False), accelerator="Ctrl+c")
+        self.add_command(label='Paste', command=lambda: self.paste_text(False), accelerator="Ctrl+v")
+        self.add_separator()
+        self.add_command(label='Undo', command=text_area.edit_undo, accelerator='Ctrl+z')
+        self.add_command(label='Redo', command=text_area.edit_redo, accelerator='Ctrl+y')
+        menu_bar.add_cascade(label="Edit", menu=self)
 
         # Edit Key Binds
         root.bind("<Control-x>", self.cut_text)

@@ -1,17 +1,17 @@
 from tkinter import filedialog, Menu
-# from tkinter import *
 
 
-class FileMenu():
+
+class FileMenu(Menu):
     def __init__(self, root, text_area, menu_bar):
+        super().__init__(menu_bar, tearoff=False)
         self.root = root
-        self.file_menu = Menu(menu_bar, tearoff=False)
-        self.file_menu.add_command(label="Open", command=self.open_file)
-        self.file_menu.add_command(label="Save As", command=self.save_as_file)
-        self.file_menu.add_command(label="Save", command=self.save_file)
-        self.file_menu.add_separator()
-        self.file_menu.add_command(label='Quit', command=self.close)
-        menu_bar.add_cascade(label='File', menu=self.file_menu)
+        self.add_command(label="Open", command=self.open_file)
+        self.add_command(label="Save As", command=self.save_as_file)
+        self.add_command(label="Save", command=self.save_file)
+        self.add_separator()
+        self.add_command(label='Quit', command=self.close)
+        menu_bar.add_cascade(label='File', menu=self)
 
         self.text_area = text_area
         self.files = [("Text file", "*.txt")]

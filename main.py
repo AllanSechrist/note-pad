@@ -1,4 +1,3 @@
-# import tkinter as tk
 from file_menu import FileMenu
 from edit_menu import EditMenu
 from tkinter import *
