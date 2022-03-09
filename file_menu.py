@@ -25,7 +25,10 @@ class FileMenu():
         file_name = filedialog.askopenfilename(initialdir='/', title="Select a file", filetypes=self.files)
         file_name = open(file_name, 'r')
         text = file_name.read()
-        self.text_area.insert('end', text)
+        # Delete the text on screen
+        self.text_area.delete('1.0', 'end')
+        # Insert text from file_name
+        self.text_area.insert('1.0', text)
         file_name.close()
 
 

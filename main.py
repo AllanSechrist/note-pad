@@ -1,19 +1,22 @@
-from tkinter import *
+# import tkinter as tk
 from file_menu import FileMenu
 from edit_menu import EditMenu
-from text_window import TextArea
+from tkinter import *
 
-root = Tk()
-root.title("Note")
-root.geometry('800x800')
 
-text_area = TextArea(root)
-menu_bar = Menu(root)
-root.config(menu=menu_bar)
-
-file = FileMenu(root, text_area, menu_bar)
-edit = EditMenu(menu_bar, text_area, root)
+class NotePad(Tk):
+    def __init__(self):
+        Tk.__init__(self)
+        self.title("Note")
+        self.geometry('800x800')
+        menu_bar = Menu(self)
+        self.config(menu=menu_bar)
+        text_area = Text(self, undo=True)
+        text_area.pack(expand=True, fill='both')
+        self.file_menu = FileMenu(self, text_area, menu_bar)
+        self.edit_menu = EditMenu(menu_bar, text_area, self)
 
 
 if __name__=="__main__":
-    root.mainloop()
+    app = NotePad()
+    app.mainloop()

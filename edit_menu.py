@@ -50,11 +50,3 @@ class EditMenu():
             if selected:
                 position = self.text_area.index(INSERT)
                 self.text_area.insert(position, selected)
-
-    
-    def undo_text(self, event):
-        pass
-
-    
-    def redo_text(self, event):
-        pass
